@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>eHappy書籍導覽系統</title>
+<link href="jquery-mobile/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css" />
+<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<style>
+.logo {
+	width: 200px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+.bookcover {
+	width: 210px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	box-shadow: 2px 2px 2px 2px #999;
+	border: 5px solid #FFF;
+	border-radius: 10px;
+}
+#details #bookname {
+	font-size: 13px;
+	font-style: normal;
+	font-weight: bold;
+	color: #03C;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<!-- *** home page 首頁 *** -->
+<div data-role="page" id="home">
+  <div data-role="content">
+    <div class="logo">
+      <p><img src="images/logo.jpg" alt="我的網頁工作室" width="200" height="200"/></p>
+    </div>
+    <h3 align="center">eHappy書籍導覽系統<br>2017/12/14</h3>
+    <div class="ui-grid-a">
+      <div class="ui-block-a">
+        <a href="http://www.csu.edu.tw" data-icon="gear" data-role="button" data-theme="b" rel="external">正修科大</a>
+      </div>
+      <div class="ui-block-b">
+        <a href="http://www.csie.csu.edu.tw" data-icon="star" data-role="button" data-theme="b" target="_blank">正修資工</a>
+      </div>
+    </div>
+  </div>
+<div data-role="footer" data-position="fixed" data-id="toolbar">
+<div data-role="navbar">
+  <ul>
+    <li><a class="ui-btn-active ui-state-persist" href="#home" data-icon="home" data-transition="fade">首頁</a></li>
+    <li><a href="#details" data-icon="info" data-transition="fade">新書介紹</a></li>
+    <li><a href="#about" data-icon="search" data-rel="dialog" data-transition="pop">關於</a></li>
+  </ul>
+</div>
+</div>
+</div>
+<!-- *** details page *** -->
+<div data-role="page" id="details">
+  <div data-role="footer" data-position="fixed" data-id="toolbar">
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#home" data-icon="home" data-transition="fade">首頁</a></li>
+      <li><a class="ui-btn-active ui-state-persist" href="#details" data-icon="info" data-transition="fade">新書介紹</a></li>
+      <li><a href="#about" data-icon="search" data-rel="dialog" data-transition="pop">關於</a></li>
+    </ul>
+  </div>
+  </div>
+</div>
+<!-- *** about page *** -->
+<div data-role="page" id="about">
+  <div data-role="header">
+    <h1>網頁工作室</h1>
+  </div>
+  <div data-role="content">
+    謝謝您對[網頁工作室]的熱愛<br>
+    也請您與我們在和樂的氣氛下共同成長<br>
+    謝謝大家!!
+  </div>
+</div>
+</body>
+</html>

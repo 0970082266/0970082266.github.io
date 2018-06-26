@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.AnPingFoodMap"
+    version   = "1.0.0">
+
+<name>安平美食地圖</name>
+
+<description>
+這是一個介紹台南市安平地區相關美食景點的App。
+</description>
+
+<author href="https://www.cccluke.com.tw" email="cccluke@gmail.com">
+網路工作室
+</author>
+
+<preference name="orientation" value="portrait" />
+<preference name="android-minSdkVersion" value="7" />
+
+<icon src="images/PuliFoodMapIcon.png" gap:platform="android" />
+<gap:splash src="images/PuliFoodMap.png" gap:platform="android" />
+
+</widget>

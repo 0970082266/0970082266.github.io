@@ -1,66 +1,92 @@
-<html>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>照片集</title>
-
-</head>
-<body onload="startClock()" onunload="stopClock()">
-<h2>照片集</h2>
-<img src="pic00.jpg" alt="" onmousedown="this.src=nextImage()"
-                           onmouseover="this.src=randomImage()">
-<div id="show"></div>
+<meta charset="utf-8"/>
+<title>期末作業.html</title>
+<style type="text/css">
+th { background-color : #555; color: white; }
+table, #books { border : 1px solid #999;
+                width : 300px;}
+#nav { margin : 10px 0;}
+#nav a { color : #555; }
+.active { text-decoration : none;
+          font-weight : bold; }
+</style>
+<script src="jquery-3.2.1.min.js"></script>
 <script>
-    var curIndex=0;
-    var imgArray = new Array();
-    var pics=10;
-    for(i=0;i<pics;i++)
-    {
-        imgArray[i]=new Image();
-        if(i<10)
-        imgArray[i].src="pic0"+i+".jpg";
-        else
-        imgArray[i].src="pic"+i+".jpg";
-    }
-    function nextImage(){
-        curIndex++;
-        curIndex=curIndex % pics;
-        return(imgArray[curIndex].src);
-    }
-    function randomImage(){
-        curIndex=Math.floor(Math.random()*pics);
-        return(imgArray[curIndex].src);
-    }
-    //時間
-    var timer = null;
-// 顯示數字圖片
-function displayClock(num) {
-var dig = parseInt(num/10);
-var timetag="<img src='images\\" + dig + ".gif'>";
-dig = num%10;
-timetag +="<img src='images\\" + dig + ".gif'>";
-return timetag;
-}
-// 停止計時
-function stopClock() {
-clearTimeout(timer);
-}
-// 開始計時
-function startClock() {
-var time = new Date();
-// 取得時間
-var hours = displayClock(time.getHours()) + ":";
-var minutes = displayClock(time.getMinutes()) + ":";
-var seconds = displayClock(time.getSeconds());
-// 顯示時間
-show.innerHTML = hours + minutes + seconds;
-timer = setTimeout("startClock()",1000);
-}
-
-   </script>
-
+$(document).ready(function(){
+   var rowsPage = 5;  // 每頁有幾列
+   // 取得表格共幾列
+   var totalRows = $('#books tr').length;
+   // 計算頁數
+   var numPages = Math.floor(totalRows/rowsPage);
+   var mod = totalRows % rowsPage; // 餘數
+   if (mod > 0) numPages++; // 不能整除
+   for ( i = 0; i < numPages;i++ ) {
+      var pageNum = i + 1;  // 頁碼超連結
+      $('#nav').append('<a href="#" rel="' +
+                 i + '">' + pageNum + '</a> ');
+   }  // 顯示第1頁
+   $('#books tr').hide().slice(0, rowsPage).show();
+   $('#nav a:first').addClass('active');
+   // 按下頁碼超連結
+   $('#nav a').click(function(event) {
+      $('#nav a').removeClass('active');
+      $(this).addClass('active');
+      var currPage = $(this).attr('rel');
+      var begin = currPage * rowsPage;
+      var end = begin + rowsPage;
+      $('#books tr').hide().slice(begin, end).show();
+      event.preventDefault();
+   });
+});
+</script>
+</head>
+<body>
+<div class="content">
+   <table>
+    <thead>
+      <tr>
+         <th>數目</th><th>程式範例</th><th>作者</th>
+      </tr>
+    </thead>
+    <tbody id="books">
+      <tr>
+         <td>1.</td>
+         <td><a id="餐飲類" href="01\餐飲業.html">餐飲業</a></td>
+         <td>90403119</td>
+      </tr><tr>
+         <td>2.</td>
+         <td><a id="音樂類" href="02\音樂業.html">音樂業</a></td>
+         <td>90403119</td>
+      </tr><tr>
+         <td>3.</td>
+         <td><a id="書展類" href="03\書展業.html">書展業</a></td>
+         <td>90403119</td>
+      </tr><tr>
+         <td>4.</td>
+         <td><a id="旅遊類" href="04\旅遊業.html">旅遊業</a></td>
+         <td>90403119</td>
+      </tr><tr>
+         <td>5.</td>
+         <td><a id="計算類" href="05\計算業.html">計算業</a></td>
+         <td>90403119</td>
+      </tr><tr>
+         <td>6.</td>
+         <td><a id="學校類" href="06\學校業.html">學校業</a></td>
+         <td>90403119</td>
+       </tr><tr>
+          <td>7.</td>
+          <td>攝影業</td>
+          <td>90403119</td>
+        </tr><tr>
+           <td>7.</td>
+           <td>金融業</td>
+           <td>90403119</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="nav"></div>
+</div>
 </body>
 </html>
